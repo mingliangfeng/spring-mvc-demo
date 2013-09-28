@@ -10,9 +10,10 @@
 	</style>
 </head>
 <body>
-	<h1>
+  <h1>Demo</h1>
+	<h2>
 		Choose your domain name and how many years you want to register for:
-	</h1>
+	</h2>
 
 	<f:form method="get" action="price" modelAttribute="registarForm" novalidate="novalidate">
 	  <div id="domain-names">
@@ -23,16 +24,9 @@
 		    
 		    <label for="registarInfos[${status.index}].registerYear">Year(s):</label>
 		    <select name="registarInfos[${status.index}].registerYear">
-          <option value="1" ${registarInfo.registerYear == 1 ? "selected" : ""}>1 Year</option>
-          <option value="2" ${registarInfo.registerYear == 2 ? "selected" : ""}>2 Years</option>
-          <option value="3" ${registarInfo.registerYear == 3 ? "selected" : ""}>3 Years</option>
-          <option value="4" ${registarInfo.registerYear == 4 ? "selected" : ""}>4 Years</option>
-          <option value="5" ${registarInfo.registerYear == 5 ? "selected" : ""}>5 Years</option>
-          <option value="6" ${registarInfo.registerYear == 6 ? "selected" : ""}>6 Years</option>
-          <option value="7" ${registarInfo.registerYear == 7 ? "selected" : ""}>7 Years</option>
-          <option value="8" ${registarInfo.registerYear == 8 ? "selected" : ""}>8 Years</option>
-          <option value="9" ${registarInfo.registerYear == 9 ? "selected" : ""}>9 Years</option>
-          <option value="10" ${registarInfo.registerYear == 10 ? "selected" : ""}>10 Years</option>
+			    <c:forEach begin="1" end="10" step="1" var="i">
+			      <option value="${i}" ${registarInfo.registerYear == i ? "selected" : ""}>${i} ${i > 1 ? "Years" : "Year"}</option>
+			    </c:forEach>
         </select>
 		  </div>
     </c:forEach>
